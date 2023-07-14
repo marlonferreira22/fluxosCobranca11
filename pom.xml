@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.13</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>br.com.bma</groupId>
+	<artifactId>fluxosCobranca11</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>fluxosCobranca11</name>
+	<description>Demo project for Spring Boot</description>
+	<properties>
+		<java.version>11</java.version>
+	</properties>
+	
+	<repositories>
+		<repository>
+			<id>fluig</id>
+			<url>http://nexus.fluig.com/content/groups/public</url>
+		</repository>
+	</repositories>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+                <exclusion>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-classic</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+		</dependency>
+		
+		<dependency>
+	         <groupId>javax.servlet</groupId>
+	         <artifactId>javax.servlet-api</artifactId>
+	         <version>4.0.1</version>
+	         <scope>provided</scope>
+	      </dependency>
+	      
+	      <dependency>
+		      <groupId>org.wildfly</groupId>
+		      <artifactId>wildfly-dist</artifactId>
+		      <version>23.0.0.Final</version>
+		      <type>zip</type>
+		   </dependency>
+		   
+		   <dependency>
+		      <groupId>javax</groupId>
+		      <artifactId>javaee-api</artifactId>
+		      <version>8.0.1</version>
+		      <scope>provided</scope>
+		   </dependency>
+		   
+		   <dependency>
+		       <groupId>jakarta.xml.bind</groupId>
+		       <artifactId>jakarta.xml.bind-api</artifactId>
+		       <version>2.3.3</version>
+		   </dependency>
+		   
+		   <dependency>
+				<groupId>com.google.code.gson</groupId>
+				<artifactId>gson</artifactId>
+			</dependency>
+			
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt</artifactId>
+				<version>0.9.1</version>
+			</dependency>
+			
+			<dependency>
+			  <groupId>com.sun.xml.ws</groupId>
+			  <artifactId>rt</artifactId>
+			  <version>2.3.2</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.json</groupId>
+			    <artifactId>json</artifactId>
+			    <version>20180813</version>
+			</dependency> 
+						
+			<dependency>
+				<groupId>com.fluig</groupId>
+				<artifactId>api-client-env</artifactId>
+				<version>1.6.5</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.mortbay.jetty</groupId>
+						<artifactId>servlet-api-2.5</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+		   
+		   <dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-security</artifactId>
+			</dependency>
+
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-tomcat</artifactId>-->
+<!--			<scope>provided</scope>-->
+<!--		</dependency>-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+	         <groupId>junit</groupId>
+	         <artifactId>junit</artifactId>
+	         <version>4.13.2</version>
+	         <scope>test</scope>
+	      </dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>3.0.2.Final</version>
+            </plugin>
+            
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
